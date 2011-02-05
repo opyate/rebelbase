@@ -1,0 +1,41 @@
+<lift:children>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/style/main.css"/>
+    </head>
+
+
+    <div>
+        <lift:test_cond.loggedin>
+            <lift:TaskManager.add_button>
+                <d:add_task/>
+            </lift:TaskManager.add_button>
+
+            <hr class="space"/>
+            <lift:TaskManager.chooser>
+                <tasks:full>
+                    <lift:TaskManager.items>
+                        <div id="task">
+                            <h3>
+                                <span><t:title/></span>
+
+                                <span style="float:right; font-size: smaller;"><t:add_dependency/></span>
+                            </h3>
+                            <p>
+                                <t:description/>
+                            </p>
+                        </div>
+                    </lift:TaskManager.items>
+                </tasks:full>
+
+                <tasks:empty>
+                    <p>You have no tasks.</p>
+                </tasks:empty>
+            </lift:TaskManager.chooser>
+
+        </lift:test_cond.loggedin>
+
+        <lift:test_cond.loggedout>
+            <span><a href="/user_mgt/login">Sign in</a> to see your tasks.</span>
+        </lift:test_cond.loggedout>
+    </div>
+</lift:children>
