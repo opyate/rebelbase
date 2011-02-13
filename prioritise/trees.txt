@@ -1,0 +1,51 @@
+
+
+h1. Introduction
+
+Prioritise will be modelled as a DAG (directed acyclic graph)
+http://en.wikipedia.org/wiki/Directed_acyclic_graph
+
+h1. Scenarios
+
+h1. Shared node suggestion: Cake and omelette example
+
+Imagine 2 parent tasks: "Make omelette" (1) and "Bake cake" (2).
+Imagine 2 child tasks: "Buy 2 eggs" (3) and "Buy 3 eggs" (4).
+
+Note that (3) and (4) is similar, but not the same. They could be combined and renamed "Buy 5 eggs", but the omelette could be due for breakfast today, and the cake for Bob's birthday next month. The extra eggs that you buy today but need for next month will be rotten by the time you need to bake the cake.
+
+The system should be intelligent enough to notice that you need eggs for two parent tasks, and then provide you with the option (i.e. suggest) to combine tasks.
+
+h1. Exactly the same child: Radio and television
+
+Imagine 2 parent tasks: "Build a radio" (1) and "Build a TV" (2)
+Imagine a child task: "Get electronics degree" (3)
+
+Getting the degree, in this case, will be exactly the same requirement to build both a radio and a TV. When adding a potential (4) "Get degree", the system will suggest (3) and the user can choose to accept (3) as a shared task.
+
+h1. Guard against circular dependencies
+
+The nature of directed acyclic graphs guard against circular dependencies.
+
+h1. Redis implementation
+
+# new graph
+incr graph
+
+# new vertex (node)
+incr vertex
+
+# make root vertex (node)
+set vertex:1:parent 0
+
+
+
+
+
+
+
+
+
+
+
+
