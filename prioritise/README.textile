@@ -3,3 +3,21 @@ Codename "Prioritise", for lack of a better name.
 h1. Introduction
 
 Hopefully a way to consolidate lists I keep on "Tadalist":http://tadalist.com/, "Remember The Milk":http://www.rememberthemilk.com/, "Things":http://culturedcode.com/things/, "JIRA":http://www.atlassian.com/software/jira/, "Stickies":http://en.wikipedia.org/wiki/Stickies_(software), "Evernote":http://www.evernote.com/, "Google Docs":https://docs.google.com, and various text files called TODO.txt scattered all over the place. 
+
+h1. TODO
+
+* Back the Task relationships with Neo4J.
+
+Implementing my own graph library would be too painful.
+Representing graphs in Redis would be too painful.
+
+* Find out if node deletion is easy with Neo4J.
+Is it a common pattern for deleted node D's children to be re-linked to D's parents?
+I guess not: what if D has 2 children and 2 parents? How would you go about linking those?
+If you delete D, you delete its children.
+
+* Find out if node re-linking is easy.
+
+E.g. Johnny is Baddo's son. Johnny finds out his real father is Gooddo.
+
+* Find out if node "hiding" is easy, e.g. "completed task". 

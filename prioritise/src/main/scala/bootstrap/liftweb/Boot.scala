@@ -13,7 +13,10 @@ import util.Props
 import common.Full
 import http.S
 import prioritise.model._
-
+import org.neo4j.kernel.EmbeddedGraphDatabase
+import org.neo4j.graphdb.GraphDatabaseService
+import org.neo4j.index.IndexService
+import org.neo4j.index.lucene.LuceneIndexService
 
 
 class Boot {
