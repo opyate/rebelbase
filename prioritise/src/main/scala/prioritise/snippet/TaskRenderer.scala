@@ -5,8 +5,9 @@ import prioritise.model.{Task, User}
 import net.liftweb.http.{TemplateFinder, SHtml}
 import net.liftweb.util.BindHelpers._
 import net.liftweb.http.js.JsCmds._
+import prioritise.lib.TaskManager
 
-class TaskManager {
+class TaskRenderer {
   private lazy val rootTasks: List[Task] =
     User.currentUser.map(_.myRootTasks).openOr(Nil)
 
@@ -14,6 +15,7 @@ class TaskManager {
    * Chooses between 'empty' and 'full' template sections in _tasks.html
    */
   def chooser(xhtml: NodeSeq): NodeSeq = {
+    
     val template = if (rootTasks.isEmpty) "empty" else "full"
     bind("b", chooseTemplate("tasks", template, xhtml)
     )
@@ -37,6 +39,7 @@ class TaskManager {
    * Renders an individual task.
    */
   private def task(t: Task, xhtml: NodeSeq): NodeSeq = {
+
     bind("t", xhtml,
       "title" -> t.title.is,
       "description" -> t.description.is,

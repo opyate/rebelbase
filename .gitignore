@@ -16,3 +16,4 @@ project/boot/
 **/project/boot/
 **/lib_managed
 *.swp
+out

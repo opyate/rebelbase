@@ -6,14 +6,14 @@
 
     <div>
         <lift:test_cond.loggedin>
-            <lift:TaskManager.add_button>
+            <lift:TaskRenderer.add_button>
                 <d:add_task/>
-            </lift:TaskManager.add_button>
+            </lift:TaskRenderer.add_button>
 
             <hr class="space"/>
-            <lift:TaskManager.chooser>
+            <lift:TaskRenderer.chooser>
                 <tasks:full>
-                    <lift:TaskManager.items>
+                    <lift:TaskRenderer.items>
                         <div id="task">
                             <h3>
                                 <span><t:title/></span>
@@ -24,13 +24,13 @@
                                 <t:description/>
                             </p>
                         </div>
-                    </lift:TaskManager.items>
+                    </lift:TaskRenderer.items>
                 </tasks:full>
 
                 <tasks:empty>
                     <p>You have no tasks.</p>
                 </tasks:empty>
-            </lift:TaskManager.chooser>
+            </lift:TaskRenderer.chooser>
 
         </lift:test_cond.loggedin>
 

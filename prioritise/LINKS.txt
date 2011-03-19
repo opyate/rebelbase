@@ -1,0 +1,7 @@
+http://ocw.mit.edu/courses/mathematics/18-315-combinatorial-theory-introduction-to-graph-theory-extremal-and-enumerative-combinatorics-spring-2005/
+http://en.wikipedia.org/wiki/Topological_sorting
+http://en.wikipedia.org/wiki/Transitive_reduction
+/Users/juanuys/Documents/src/scala-stuff/graph/jgrapht/jgrapht-0.8.2/javadoc/index.html
+/Users/juanuys/Documents/src/scala-stuff/graph/graphlib/stixar-graphlib-988/stixar-graphlib-988/doc/html/javadoc/index.html
+http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Graph/
+

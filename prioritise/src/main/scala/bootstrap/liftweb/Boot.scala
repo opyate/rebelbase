@@ -1,5 +1,3 @@
-
-
 package bootstrap.liftweb
 
 import net.liftweb._
@@ -13,10 +11,6 @@ import util.Props
 import common.Full
 import http.S
 import prioritise.model._
-import org.neo4j.kernel.EmbeddedGraphDatabase
-import org.neo4j.graphdb.GraphDatabaseService
-import org.neo4j.index.IndexService
-import org.neo4j.index.lucene.LuceneIndexService
 
 
 class Boot {
@@ -44,27 +38,28 @@ class Boot {
     // build sitemap
     val entries = List(
       Menu("Home") / "index",
-      Menu("Tasks") / "tasks" >> LocGroup("public") submenus(Task.menus : _*)
+      Menu("Graph") / "graph",
+      Menu("Tasks") / "tasks" >> LocGroup("public") submenus (Task.menus: _*)
     ) :::
       // the User management menu items
       User.sitemap :::
       Nil
-    
-    LiftRules.uriNotFound.prepend(NamedPF("404handler"){
-      case (req,failure) => NotFoundAsTemplate(
-        ParsePath(List("exceptions","404"),"html",false,false))
+
+    LiftRules.uriNotFound.prepend(NamedPF("404handler") {
+      case (req, failure) => NotFoundAsTemplate(
+        ParsePath(List("exceptions", "404"), "html", false, false))
     })
-    
-    LiftRules.setSiteMap(SiteMap(entries:_*))
-    
+
+    LiftRules.setSiteMap(SiteMap(entries: _*))
+
     // set character encoding
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
-    
+
     // What is the function to test if a user is logged in?
-     LiftRules.loggedInTest = Full(() => User.loggedIn_?)
- 
-     // Make a transaction span the whole HTTP request
-     S.addAround(DB.buildLoanWrapper)
+    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
+
+    // Make a transaction span the whole HTTP request
+    S.addAround(DB.buildLoanWrapper)
 
   }
 }
